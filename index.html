@@ -69,7 +69,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Micr
 <body>
 <div class="container">
 <div class="header">
-  <div class="date">2026-04-26 · 周周日</div>
+  <div class="date">2026-04-26 · 周日</div>
   <h1>🌐 全球AI动态日报</h1>
   <div class="subtitle">国内外行业精选 · 每24小时自动更新</div>
   <div class="stats">
@@ -90,11 +90,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Micr
 <div class="highlight-bar">
   <div class="h-bar"><div class="h-title">API性价比之选</div><div class="h-val" style="color:var(--accent2)">Grok 4.1 Fast</div><div class="h-sub">$0.70 / 100万token</div></div>
   <div class="h-bar"><div class="h-title">旗舰性能</div><div class="h-val" style="color:var(--accent)">DeepSeek V4</div><div class="h-sub">接近GPT-5.5水平</div></div>
-  <div class="h-bar"><div class="h-title">最新事件</div><div class="h-val" style="color:var(--accent3)"> Manus收购被拒</div><div class="h-sub">Meta 20亿美元告吹</div></div>
+  <div class="h-bar"><div class="h-title">最新事件</div><div class="h-val" style="color:var(--accent3)">Manus收购被拒</div><div class="h-sub">Meta 20亿美元告吹</div></div>
 </div>
 
 <div class="visual-block"><h3>⏱️ 近期大事时间线</h3><div class="timeline">
-  <div class="timeline-item"><div class="t-time">4月27日</div><div class="t-text">中国否决Meta收购Manus（20亿美元）；马斯克撤诉OpenAI</div></div>
+  <div class="timeline-item"><div class="t-time">2026-04-26</div><div class="t-text">中国否决Meta收购Manus（20亿美元）；马斯克撤诉OpenAI</div></div>
   <div class="timeline-item"><div class="t-time">4月26日</div><div class="t-text">AI合成受众颠覆咨询业；数据中心建设引发政治反弹</div></div>
   <div class="timeline-item"><div class="t-time">4月25日</div><div class="t-text">Claude行为退化原因公布（Anthropic修复中）；AI静默失败问题浮出水面</div></div>
   <div class="timeline-item"><div class="t-time">4月24日</div><div class="t-text">DeepSeek V4发布：第二次DeepSeek时刻，API成本1/6于GPT-5.5</div></div>
@@ -111,10 +111,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Micr
   <div class="tab" onclick="showTab('price')">📊 模型价格</div>
 </div>
 
-<div class="section active" id="section-all">
-<!-- Articles injected by JS below -->
-</div>
-
+<div class="section active" id="section-all"></div>
 <div class="section" id="section-price">
 <div class="price-table">
 <table>
@@ -129,11 +126,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Micr
 <tr><td class="model">🔴 Claude Opus 4.7</td><td>$5.00</td><td>$25.00</td><td class="cost" style="color:var(--red)">$30.00</td><td style="color:var(--red)">次高定价</td></tr>
 </tbody>
 </table>
-<p style="font-size:.78rem;color:var(--muted);padding:.8rem 1rem;border-top:1px solid var(--border)">📌 数据来源：VentureBeat，2026-04-27。DeepSeek-V4性价比接近Grok但性能达旗舰水平。</p>
+<p style="font-size:.78rem;color:var(--muted);padding:.8rem 1rem;border-top:1px solid var(--border)">📌 数据来源：VentureBeat。DeepSeek-V4性价比接近Grok但性能达旗舰水平。</p>
 </div>
 </div>
-
-<!-- Category placeholders -->
 <div class="section" id="section-product"></div>
 <div class="section" id="section-industry"></div>
 <div class="section" id="section-biz"></div>
@@ -143,20 +138,14 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Micr
 
 <div class="footer">全球AI动态日报 · 2026-04-26 · 数据来源：MIT Technology Review / VentureBeat / The Verge / 36Kr<br>本报告由 AI 自动整理</div>
 </div>
-
 <script>
-const ARTICLES = [
-// Will be populated by server-side injection
-];
-
-function renderArticles() {
-  const allSec = document.getElementById('section-all');
-  const cats = {product:document.getElementById('section-product'),industry:document.getElementById('section-industry'),biz:document.getElementById('section-biz'),startup:document.getElementById('section-startup'),discuss:document.getElementById('section-discuss'),policy:document.getElementById('section-policy')};
+const ARTICLES=[];
+function renderArticles(){
+  const allSec=document.getElementById('section-all');
+  const cats={product:document.getElementById('section-product'),industry:document.getElementById('section-industry'),biz:document.getElementById('section-biz'),startup:document.getElementById('section-startup'),discuss:document.getElementById('section-discuss'),policy:document.getElementById('section-policy')};
   let total=0,product=0,china=0,biz=0;
   ARTICLES.forEach(a=>{
-    total++;
-    if(a.tag==='product')product++;
-    if(a.tag==='biz')biz++;
+    total++;if(a.tag==='product')product++;if(a.tag==='biz')biz++;
     const html='<div class="article"><div class="meta"><span class="tag tag-'+a.tag+'">'+a.tagName+'</span><span class="source">'+a.source+'</span><span class="time">'+a.time+'</span></div><h2>'+a.title+'</h2><p class="summary">'+a.summary+'</p><a class="link" href="'+a.url+'" target="_blank">🔗 原文链接</a></div>';
     allSec.insertAdjacentHTML('beforeend',html);
     if(cats[a.tag])cats[a.tag].insertAdjacentHTML('beforeend',html);
@@ -165,7 +154,6 @@ function renderArticles() {
   document.getElementById('product-count').textContent=product;
   document.getElementById('china-count').textContent=china;
   document.getElementById('biz-count').textContent=biz;
-  // summaries
   if(ARTICLES[0])document.getElementById('top1').textContent=ARTICLES[0].summary.substring(0,80)+'...';
   if(ARTICLES[1])document.getElementById('top2').textContent=ARTICLES[1].summary.substring(0,80)+'...';
   if(ARTICLES[2])document.getElementById('top3').textContent=ARTICLES[2].summary.substring(0,80)+'...';
