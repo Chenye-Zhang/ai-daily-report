@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>全球AI动态日报 | 2026-04-26</title>
+<style>
+:root{--bg:#0f1117;--card:#1a1d27;--card2:#21253a;--border:#2a2d3e;--accent:#6c63ff;--accent2:#00d4aa;--accent3:#ff6b6b;--accent4:#ffd93d;--text:#e8e9f0;--muted:#8b8fa8;--green:#51cf66;--red:#ff6b6b}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
+.container{max-width:1200px;margin:0 auto;padding:2rem}
+.header{text-align:center;padding:3rem 0 2rem;border-bottom:1px solid var(--border);margin-bottom:2.5rem}
+.header .date{font-size:.85rem;color:var(--accent);letter-spacing:3px;text-transform:uppercase;margin-bottom:.5rem}
+.header h1{font-size:2.5rem;font-weight:800;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:.5rem}
+.header .subtitle{color:var(--muted);font-size:.95rem}
+.header .stats{display:flex;justify-content:center;gap:2rem;margin-top:2rem;flex-wrap:wrap}
+.stat-box{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1rem 1.5rem;text-align:center;min-width:120px}
+.stat-box .num{font-size:1.8rem;font-weight:700;color:var(--accent2)}
+.stat-box .label{font-size:.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
+.stat-box.red .num{color:var(--accent3)}.stat-box.yellow .num{color:var(--accent4)}
+.summary-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;margin-bottom:2.5rem}
+.summary-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.2rem}
+.summary-card h3{font-size:.8rem;text-transform:uppercase;letter-spacing:2px;margin-bottom:.6rem;display:flex;align-items:center;gap:.5rem}
+.summary-card p{font-size:.88rem;color:var(--muted)}
+.summary-card.high{border-left:3px solid var(--accent3)}
+.summary-card.china{border-left:3px solid var(--red)}
+.summary-card.biz{border-left:3px solid var(--accent2)}
+.summary-card.tech{border-left:3px solid var(--accent)}
+.summary-card .emoji{font-size:1.1rem}
+.tabs{display:flex;gap:.5rem;margin-bottom:2rem;flex-wrap:wrap}
+.tab{padding:.5rem 1.2rem;border-radius:8px;border:1px solid var(--border);background:var(--card);color:var(--muted);font-size:.85rem;cursor:pointer;transition:all .2s}
+.tab:hover{border-color:var(--accent);color:var(--accent)}.tab.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.section{margin-bottom:3rem;display:none}.section.active{display:block}
+.article{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.5rem;margin-bottom:1rem;transition:border-color .2s}
+.article:hover{border-color:var(--accent)}
+.article .meta{display:flex;gap:1rem;margin-bottom:.8rem;flex-wrap:wrap}
+.article .tag{font-size:.72rem;padding:.2rem .7rem;border-radius:20px;font-weight:600;text-transform:uppercase;letter-spacing:1px}
+.tag-product{background:rgba(108,99,255,.2);color:var(--accent)}.tag-industry{background:rgba(0,212,170,.2);color:var(--accent2)}
+.tag-biz{background:rgba(255,107,107,.2);color:var(--accent3)}.tag-startup{background:rgba(255,217,61,.2);color:var(--accent4)}
+.tag-discuss{background:rgba(255,140,0,.2);color:#ff8c00}.tag-policy{background:rgba(80,200,120,.2);color:var(--green)}
+.article .source,.article .time{font-size:.78rem;color:var(--muted)}
+.article h2{font-size:1.15rem;font-weight:700;margin-bottom:.7rem;color:var(--text)}
+.article .summary{font-size:.9rem;color:var(--muted);margin-bottom:1rem;line-height:1.8}
+.article .link{display:inline-flex;align-items:center;gap:.4rem;font-size:.82rem;color:var(--accent);text-decoration:none;padding:.4rem .9rem;border:1px solid var(--accent);border-radius:6px;transition:all .2s}
+.article .link:hover{background:var(--accent);color:#fff}
+.price-table{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:2rem}
+.price-table table{width:100%;border-collapse:collapse;font-size:.85rem}
+.price-table th{background:var(--card2);padding:.8rem 1rem;text-align:left;color:var(--muted);font-size:.75rem;text-transform:uppercase;letter-spacing:1px}
+.price-table td{padding:.7rem 1rem;border-top:1px solid var(--border)}
+.price-table tr:hover td{background:var(--card2)}.price-table .model{font-weight:600}.price-table .cost{font-weight:700}
+.price-table .best{color:var(--green);font-weight:700}.price-table .second{color:var(--accent2)}
+.visual-block{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.5rem;margin-bottom:2rem}
+.visual-block h3{font-size:.85rem;text-transform:uppercase;letter-spacing:2px;color:var(--muted);margin-bottom:1rem}
+.timeline{position:relative;padding-left:2rem}
+.timeline::before{content:'';position:absolute;left:.4rem;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--accent),var(--accent2),var(--accent3))}
+.timeline-item{position:relative;margin-bottom:1.2rem}
+.timeline-item::before{content:'';position:absolute;left:-1.7rem;top:.4rem;width:10px;height:10px;border-radius:50%;background:var(--accent);border:2px solid var(--bg)}
+.timeline-item:nth-child(2)::before{background:var(--accent2)}.timeline-item:nth-child(3)::before{background:var(--accent3)}.timeline-item:nth-child(4)::before{background:var(--accent4)}
+.timeline-item .t-time{font-size:.75rem;color:var(--accent);font-weight:600;margin-bottom:.2rem}
+.timeline-item .t-text{font-size:.88rem;color:var(--text)}
+.footer{text-align:center;padding:2rem 0;border-top:1px solid var(--border);color:var(--muted);font-size:.8rem;margin-top:3rem}
+.highlight-bar{display:flex;gap:.5rem;margin-bottom:1.5rem;flex-wrap:wrap}
+.h-bar{flex:1;min-width:200px;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1rem}
+.h-bar .h-title{font-size:.72rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);margin-bottom:.4rem}
+.h-bar .h-val{font-size:1.3rem;font-weight:700}.h-bar .h-sub{font-size:.75rem;color:var(--muted);margin-top:.3rem}
+@media(max-width:768px){.container{padding:1rem}.header h1{font-size:1.8rem}.header .stats{gap:1rem}.stat-box{min-width:90px;padding:.7rem 1rem}}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="header">
+  <div class="date">2026-04-26 · 周周日</div>
+  <h1>🌐 全球AI动态日报</h1>
+  <div class="subtitle">国内外行业精选 · 每24小时自动更新</div>
+  <div class="stats">
+    <div class="stat-box"><div class="num" id="total-count">-</div><div class="label">文章总数</div></div>
+    <div class="stat-box red"><div class="num" id="product-count">-</div><div class="label">重磅新品</div></div>
+    <div class="stat-box yellow"><div class="num" id="china-count">-</div><div class="label">中国动态</div></div>
+    <div class="stat-box"><div class="num" id="biz-count">-</div><div class="label">商业应用</div></div>
+  </div>
+</div>
+
+<div class="summary-grid" id="summary-grid">
+  <div class="summary-card high"><h3><span class="emoji">🔥</span> 今日最热</h3><p id="top1">加载中...</p></div>
+  <div class="summary-card china"><h3><span class="emoji">🇨🇳</span> 中国头条</h3><p id="top2">加载中...</p></div>
+  <div class="summary-card biz"><h3><span class="emoji">💼</span> 商业焦点</h3><p id="top3">加载中...</p></div>
+  <div class="summary-card tech"><h3><span class="emoji">⚠️</span> 技术警示</h3><p id="top4">加载中...</p></div>
+</div>
+
+<div class="highlight-bar">
+  <div class="h-bar"><div class="h-title">API性价比之选</div><div class="h-val" style="color:var(--accent2)">Grok 4.1 Fast</div><div class="h-sub">$0.70 / 100万token</div></div>
+  <div class="h-bar"><div class="h-title">旗舰性能</div><div class="h-val" style="color:var(--accent)">DeepSeek V4</div><div class="h-sub">接近GPT-5.5水平</div></div>
+  <div class="h-bar"><div class="h-title">最新事件</div><div class="h-val" style="color:var(--accent3)"> Manus收购被拒</div><div class="h-sub">Meta 20亿美元告吹</div></div>
+</div>
+
+<div class="visual-block"><h3>⏱️ 近期大事时间线</h3><div class="timeline">
+  <div class="timeline-item"><div class="t-time">4月27日</div><div class="t-text">中国否决Meta收购Manus（20亿美元）；马斯克撤诉OpenAI</div></div>
+  <div class="timeline-item"><div class="t-time">4月26日</div><div class="t-text">AI合成受众颠覆咨询业；数据中心建设引发政治反弹</div></div>
+  <div class="timeline-item"><div class="t-time">4月25日</div><div class="t-text">Claude行为退化原因公布（Anthropic修复中）；AI静默失败问题浮出水面</div></div>
+  <div class="timeline-item"><div class="t-time">4月24日</div><div class="t-text">DeepSeek V4发布：第二次DeepSeek时刻，API成本1/6于GPT-5.5</div></div>
+</div></div>
+
+<div class="tabs">
+  <div class="tab active" onclick="showTab('all')">全部</div>
+  <div class="tab" onclick="showTab('product')">🆕 新品动态</div>
+  <div class="tab" onclick="showTab('industry')">🏭 行业资讯</div>
+  <div class="tab" onclick="showTab('biz')">💼 商业运用</div>
+  <div class="tab" onclick="showTab('startup')">🚀 创业模式</div>
+  <div class="tab" onclick="showTab('discuss')">💬 用户讨论</div>
+  <div class="tab" onclick="showTab('policy')">⚖️ 政策监管</div>
+  <div class="tab" onclick="showTab('price')">📊 模型价格</div>
+</div>
+
+<div class="section active" id="section-all">
+<!-- Articles injected by JS below -->
+</div>
+
+<div class="section" id="section-price">
+<div class="price-table">
+<table>
+<thead><tr><th>模型</th><th>输入 $/M</th><th>输出 $/M</th><th>综合成本</th><th>备注</th></tr></thead>
+<tbody>
+<tr><td class="model">🟢 Grok 4.1 Fast</td><td>$0.20</td><td>$0.50</td><td class="cost best">$0.70</td><td class="best">性价比首选</td></tr>
+<tr><td class="model">🔵 MiniMax M2.7</td><td>$0.30</td><td>$1.20</td><td class="cost second">$1.50</td><td class="second">实用首选</td></tr>
+<tr><td class="model">🟡 Gemini 3 Flash</td><td>$0.50</td><td>$3.00</td><td class="cost">$3.50</td><td>快速响应</td></tr>
+<tr><td class="model">🟡 Kimi-K2.5</td><td>$0.60</td><td>$3.00</td><td class="cost">$3.60</td><td>中文优化</td></tr>
+<tr><td class="model">🟣 DeepSeek-V4-Pro</td><td>$1.74</td><td>$3.48</td><td class="cost">$5.22</td><td>旗舰性能</td></tr>
+<tr><td class="model">🔴 GPT-5.5</td><td>$5.00</td><td>$30.00</td><td class="cost" style="color:var(--red)">$35.00</td><td style="color:var(--red)">最高定价</td></tr>
+<tr><td class="model">🔴 Claude Opus 4.7</td><td>$5.00</td><td>$25.00</td><td class="cost" style="color:var(--red)">$30.00</td><td style="color:var(--red)">次高定价</td></tr>
+</tbody>
+</table>
+<p style="font-size:.78rem;color:var(--muted);padding:.8rem 1rem;border-top:1px solid var(--border)">📌 数据来源：VentureBeat，2026-04-27。DeepSeek-V4性价比接近Grok但性能达旗舰水平。</p>
+</div>
+</div>
+
+<!-- Category placeholders -->
+<div class="section" id="section-product"></div>
+<div class="section" id="section-industry"></div>
+<div class="section" id="section-biz"></div>
+<div class="section" id="section-startup"></div>
+<div class="section" id="section-discuss"></div>
+<div class="section" id="section-policy"></div>
+
+<div class="footer">全球AI动态日报 · 2026-04-26 · 数据来源：MIT Technology Review / VentureBeat / The Verge / 36Kr<br>本报告由 AI 自动整理</div>
+</div>
+
+<script>
+const ARTICLES = [
+// Will be populated by server-side injection
+];
+
+function renderArticles() {
+  const allSec = document.getElementById('section-all');
+  const cats = {product:document.getElementById('section-product'),industry:document.getElementById('section-industry'),biz:document.getElementById('section-biz'),startup:document.getElementById('section-startup'),discuss:document.getElementById('section-discuss'),policy:document.getElementById('section-policy')};
+  let total=0,product=0,china=0,biz=0;
+  ARTICLES.forEach(a=>{
+    total++;
+    if(a.tag==='product')product++;
+    if(a.tag==='biz')biz++;
+    const html='<div class="article"><div class="meta"><span class="tag tag-'+a.tag+'">'+a.tagName+'</span><span class="source">'+a.source+'</span><span class="time">'+a.time+'</span></div><h2>'+a.title+'</h2><p class="summary">'+a.summary+'</p><a class="link" href="'+a.url+'" target="_blank">🔗 原文链接</a></div>';
+    allSec.insertAdjacentHTML('beforeend',html);
+    if(cats[a.tag])cats[a.tag].insertAdjacentHTML('beforeend',html);
+  });
+  document.getElementById('total-count').textContent=total;
+  document.getElementById('product-count').textContent=product;
+  document.getElementById('china-count').textContent=china;
+  document.getElementById('biz-count').textContent=biz;
+  // summaries
+  if(ARTICLES[0])document.getElementById('top1').textContent=ARTICLES[0].summary.substring(0,80)+'...';
+  if(ARTICLES[1])document.getElementById('top2').textContent=ARTICLES[1].summary.substring(0,80)+'...';
+  if(ARTICLES[2])document.getElementById('top3').textContent=ARTICLES[2].summary.substring(0,80)+'...';
+  if(ARTICLES[3])document.getElementById('top4').textContent=ARTICLES[3].summary.substring(0,80)+'...';
+}
+function showTab(id){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('section-'+id).classList.add('active');
+  event.target.classList.add('active');
+}
+renderArticles();
+</script>
+</body>
+</html>
